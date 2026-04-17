@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<XML ID="Login">
+	<Schema xmlns="MaietData" xmlns:dt="MaietDataTypes" />
+
+<!--
+   Login 윈도우
+
+   
+   Last Update : 29.OCT.2004
+   Editor      : Lim Dong Hwan
+   Modified by Styx
+-->
+
+
+<!-- 프레임 생성 : Login -->
+	<FRAME item="Login">
+		<FRAMELOOK>NullFrameLook</FRAMELOOK>
+		<BOUNDS>
+			<X>0</X>
+			<Y>0</Y>
+			<W>800</W>
+			<H>600</H>
+		</BOUNDS>
+		<TITLEBAR>false</TITLEBAR>
+		<RESIZABLE>false</RESIZABLE>
+		<FOCUSABLE>false</FOCUSABLE>
+		<VISIBLE>false</VISIBLE>
+	</FRAME>
+
+<!-- Picture : 배경 이미지 -->
+	<PICTURE item="Login_BackgrdImg" parent="Login">
+		<BOUNDS>
+			<X>0</X>
+			<Y>0</Y>
+			<W>800</W>
+			<H>600</H>
+		</BOUNDS>
+		<STRETCH/>
+		<BITMAP></BITMAP>
+	</PICTURE>
+
+<!-- 프레임 생성 : LoginFrame, changed it to cover the whole screen (800by600) -->
+	<FRAME item="LoginFrame" parent="Login">
+		<FRAMELOOK>NullFrameLook</FRAMELOOK>
+		<BOUNDS>
+			<X>0</X>
+			<Y>0</Y>
+			<W>800</W>
+			<H>600</H>
+		</BOUNDS>
+		<TITLEBAR>false</TITLEBAR>
+		<RESIZABLE>false</RESIZABLE>
+		<FOCUSABLE>false</FOCUSABLE>
+		<VISIBLE>false</VISIBLE>
+	</FRAME>
+	
+		<!-- Login Frame Image-->
+	<PICTURE item="LoginFrameImage" parent="Login">
+		<BOUNDS>
+			<X>182</X>
+			<Y>213</Y>
+			<W>658</W>
+			<H>438</H>
+		</BOUNDS>
+		<STRETCH/>
+		<BITMAP>loginbg.png</BITMAP>
+	</PICTURE>
+
+<!-- botão entrar -->
+	<BMBUTTON item="LoginOK" parent="Login">
+		<BOUNDS>
+			<X>231</X>
+			<Y>578</Y>
+			<W>97</W>
+			<H>32</H>
+		</BOUNDS>
+		<STRETCH/>
+		<BITMAP type="up">entrar_on.png</BITMAP>
+		<BITMAP type="over">entrar_off.png</BITMAP>
+		<BITMAP type="down">entrar_on.png</BITMAP>
+	</BMBUTTON>		
+<!--armação pra abrir com enter o botão enter-->
+<BUTTON item="LoginOK" parent="Login">
+		<BUTTONLOOK>NormalBmButtonLook</BUTTONLOOK>
+		<BOUNDS>
+			<X>0</X>
+			<Y>0</Y>
+			<W>0</W>
+			<H>0</H>
+		</BOUNDS>
+		<DEFAULTKEY>ENTER</DEFAULTKEY>
+	</BUTTON>
+
+
+<BMBUTTON item="Exit" parent="Login">
+		<BOUNDS>
+			<X>800</X>
+			<Y>221</Y>
+			<W>31</W>
+			<H>31</H>
+		</BOUNDS>
+		<STRETCH/>
+		<BITMAP type="up">sair_off.png</BITMAP>
+		<BITMAP type="over">sair_on.png</BITMAP>
+		<BITMAP type="down">sair_off.png</BITMAP>
+		<CONFIRMMESSAGE>STR:UI_LOGIN_05</CONFIRMMESSAGE> 
+		<!-- Do you want to quit the game? -->
+		<CONFIRMLOOK>DefaultFrameLook</CONFIRMLOOK>
+		<FOCUSABLE>FALSE</FOCUSABLE>
+	</BMBUTTON>	
+	<!--armação pra fechar ou sair com esc-->
+	<BUTTON item="Exit" parent="Login">
+	<BUTTONLOOK>NormalBmButtonLook</BUTTONLOOK>
+		<BOUNDS>
+			<X>0</X>
+			<Y>0</Y>
+			<W>0</W>
+			<H>0</H>
+		</BOUNDS>
+		<CONFIRMMESSAGE>STR:UI_LOGIN_05</CONFIRMMESSAGE> 
+	<DEFAULTKEY>ESC</DEFAULTKEY>
+	</BUTTON>
+		<!-- Announcement Image Animations, check TEMPLATES.XML for image listing -->
+		<!-- Animation of announcements -->
+	<ANIMATION item="AnnLoginAnim" parent="Login">
+		<PLAYMODE>repetition</PLAYMODE>
+		<ANIMTEMPLATE>AnnLogin</ANIMTEMPLATE>
+		<BOUNDS>
+			<X>506</X>
+			<Y>278</Y>
+			<W>282</W>
+			<H>340</H>
+		</BOUNDS>
+		<VISIBLE>true</VISIBLE>
+	</ANIMATION>
+	
+<!-- LABEL : 연결중 -->
+	<LABEL item="Login_ConnectingMsg" parent="Login">
+		<FONT>FONTb11b</FONT>
+		<TEXTCOLOR>
+			<R>55</R>
+			<G>255</G>
+			<B>74</B>
+		</TEXTCOLOR>
+		<BOUNDS>
+			<X>0</X>
+			<Y>0</Y>
+			<W>400</W>
+			<H>25</H>
+		</BOUNDS>
+		<STRETCH/>
+		<VISIBLE>false</VISIBLE>
+		<TEXT></TEXT>
+	</LABEL>
+
+<!-- 서버 선택 -->
+	<!-- SERVERVIEW : 서버 선택 -->
+	<SERVERVIEW item="SelectedServer" parent="Login">
+		<BOUNDS>
+			<X>200</X>
+			<Y>286</Y>
+			<W>282</W>
+			<H>96</H>
+		</BOUNDS>
+	</SERVERVIEW>
+
+	<!-- LISTBOX : 뒷배경용 -->
+	
+	<LISTBOX item="nulllistbox" parent="Login">
+		<LISTBOXLOOK>EquipListBoxLook</LISTBOXLOOK>
+		<BOUNDS>
+			<X>298</X>
+			<Y>485</Y>
+			<W>129</W>
+			<H>24</H>
+		</BOUNDS>
+		<ENABLE>FALSE</ENABLE>
+	</LISTBOX>
+
+	<!-- Edit : 아이디 입력창 -->
+	<EDIT item="LoginID" parent="Login">
+		<EDITLOOK>NormalEditLook</EDITLOOK>
+		<BOUNDS>
+			<X>298</X>
+			<Y>485</Y>
+			<W>129</W>
+			<H>24</H>
+		</BOUNDS>
+		<TEXT></TEXT>
+	</EDIT>
+
+
+	<!-- LISTBOX : 뒷배경용 -->
+	
+	<LISTBOX item="nulllistbox" parent="Login">
+		<LISTBOXLOOK>EquipListBoxLook</LISTBOXLOOK>
+		<BOUNDS>
+			<X>298</X>
+			<Y>533</Y>
+			<W>129</W>
+			<H>24</H>
+		</BOUNDS>
+		<ENABLE>FALSE</ENABLE>
+	</LISTBOX>
+
+	<!-- Edit : 비밀번호 입력창 -->
+	<EDIT item="LoginPassword" parent="Login">
+		<EDITLOOK>NormalEditLook</EDITLOOK>
+		<PASSWORD>true</PASSWORD>
+		<BOUNDS>
+			<X>298</X>
+			<Y>533</Y>
+			<W>129</W>
+			<H>24</H>
+		</BOUNDS>
+		<TEXT></TEXT>
+	</EDIT>
+
+
+<!-- Label : 로그인 에러 -->
+	<LABEL item="LoginError" parent="LoginFrame">
+		<TEXTCOLOR>
+			<R>200</R>
+			<G>0</G>
+			<B>0</B>
+		</TEXTCOLOR>
+		<BOUNDS>
+			<X>86</X>
+			<Y>227</Y>
+			<W>200</W>
+			<H>32</H>
+		</BOUNDS>
+		<TEXT></TEXT>
+	</LABEL>
+	
+	
+	
+<!-- 버튼 -->
+<!-- 서버 IP 설정 -->
+	<!-- Label : 서버 IP -->
+	<LABEL item="LabelServerIP" parent="LoginFrame">
+		<BOUNDS>
+			<X>130</X>
+			<Y>202</Y>
+			<W>200</W>
+			<H>24</H>
+		</BOUNDS>
+		<TEXT>Debug Server</TEXT>
+		<VISIBLE>false</VISIBLE>
+	</LABEL>
+
+	<!-- Edit : IP 주소 입력창 -->
+	<EDIT item="ServerAddress" parent="LoginFrame">
+		<EDITLOOK>NormalEditLook</EDITLOOK>
+		<BOUNDS>
+			<X>215</X>
+			<Y>202</Y>
+			<W>110</W>
+			<H>24</H>
+		</BOUNDS>
+		<TEXT></TEXT>
+		<VISIBLE>false</VISIBLE>
+	</EDIT>
+
+	<!-- Edit : IP 포트 입력창 -->
+	<EDIT item="ServerPort" parent="LoginFrame">
+		<EDITLOOK>NormalEditLook</EDITLOOK>
+		<BOUNDS>
+			<X>330</X>
+			<Y>202</Y>
+			<W>45</W>
+			<H>24</H>
+		</BOUNDS>
+		<TEXT></TEXT>
+		<VISIBLE>false</VISIBLE>
+	</EDIT>
+</XML>
